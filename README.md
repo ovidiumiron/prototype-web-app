@@ -92,16 +92,3 @@ see sequence diagram:
 
 ### Scalability and redundancy
 The system can scale up and down by adding or removing web servers, load balancers, message queue servers or database servers.
-
-
-### Known Issues
-1. Why is taking about 5 seconds to publish a 5M image?
-2. The access to REST API should be protected.
-
-
-
-### Remaining work:
-- unittest coverage
-- improve the user interface
-- finish implementation write in DB
-- volume tests
