@@ -4,7 +4,10 @@ This project is a prototype presenting a model for uploading and transformation 
 ## How to install:
 1. install and run RabbitMQ server: docker run -d -p 5672:5672 --name rabbit1 rabbitmq
 
-2. extract the archive: tar -zxvf prototype.tar.gz
+2. clone the repository: 
+``` bash 
+git clone https://github.com/ovidiumiron/prototype-web-app.git
+```
 
 3. create virtual env: virtualenv venv
 
