@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block body %}
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <input id="file"  type="file" name="image" accept="image/*" multiple />
+    <br />
+    <input type="submit" value="Upload" id="upload-button" />
+    <br />
+</form>
+{% if id %}
+<button type="button" onclick="loadDoc('{{ id }}')">Hit me!</button>
+<div id="transf-image"></div>
+
+<script>
+function loadDoc(id_image) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4) {
+          switch(this.status) {
+              case 200:
+                var img = document.createElement("img");
+                img.setAttribute("src", URL.createObjectURL(this.response));
+                document.getElementById("transf-image").appendChild(img);
+                break;
+              case 204:
+                console.log("id_image " + id_image + " not found.");
+                break;
+              case 500:
+                console.log("id_image " + id_image + " trigggered server error.");
+                document.getElementById("upload-form").reset();
+                window.location.replace("/")
+
+                break;
+        }
+    }
+  };
+  var image_url = "image/" + id_image;
+  xhttp.open("GET", image_url , true);
+  xhttp.responseType = 'blob';
+  xhttp.send();
+}
+</script>
+{% endif %}
+
+{% endblock %}

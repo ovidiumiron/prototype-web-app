@@ -1,0 +1,5 @@
+__pycache__/
+venv/
+CHALLENGE.LOG
+IMAGE_PROCESSOR.LOG
+logs
